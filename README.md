@@ -46,8 +46,8 @@ This project is a **Pokémon List App** built with **Next.js**, utilizing both t
 
 ### Deskop
 
-![Desktop page](/README-desktop.png)
+![Desktop page](/public/README-desktop.png)
 
 ### Mobile
 
-![Mobile page](/README-mobile.png)
+![Mobile page](/public/README-mobile.png)
