@@ -6,11 +6,11 @@ This project is a **Pokémon List App** built with **Next.js**, utilizing both t
 
 ## Features
 
-✅ **Pokémon Listing** – Displays a paginated list of Pokémon.
-✅ **Filtering by Type** – Users can filter Pokémon based on their type (e.g., Fire, Water, Grass).
-✅ **Pagination Support** – Easily navigate through different pages of Pokémon data.
-✅ **Next.js Hybrid Routing** – Uses **App Router** for routing.
-✅ **Fast & Dynamic UI** – Ensures smooth navigation and quick data fetching.
+- ✅ **Pokémon Listing** – Displays a paginated list of Pokémon.
+- ✅ **Filtering by Type** – Users can filter Pokémon based on their type (e.g., Fire, Water, Grass).
+- ✅ **Pagination Support** – Easily navigate through different pages of Pokémon data.
+- ✅ **Next.js Hybrid Routing** – Uses **App Router** for routing.
+- ✅ **Fast & Dynamic UI** – Ensures smooth navigation and quick data fetching.
 
 ## Technologies Used
 
