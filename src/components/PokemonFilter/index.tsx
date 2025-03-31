@@ -15,7 +15,6 @@ export default async function PokemonFilters({ count }: IPokemonFiltersProps) {
   return (
     <div className="mt-10">
       <p>Total count: {count}</p>
-
       <div className="flex gap-3 mt-5 items-center flex-wrap">
         <span>Types: </span>
         <FilterButtonGroup types={results} />

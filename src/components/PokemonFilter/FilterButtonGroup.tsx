@@ -2,6 +2,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import FilterButton from "./FilterButton";
 import { IPokemon } from "@/types/pokemon";
+import { useState } from "react";
 
 interface IFilterButtonGroupProps {
   types: IPokemon[];
@@ -11,21 +12,15 @@ export default function FilterButtonGroup({ types }: IFilterButtonGroupProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const typeParam = searchParams.get("type");
-  const selectedTypes = typeParam?.split(",") ?? [];
+  const [selectedTypes, setSelectedTypes] = useState(typeParam?.split(",") ?? []);
 
   const onFilterChanged = (name: string) => {
-    const updatedTypes = new Set(selectedTypes);
-
-    if (updatedTypes.has(name)) {
-      updatedTypes.delete(name);
-    } else {
-      updatedTypes.add(name);
-    }
+    setSelectedTypes((prev) => prev.includes(name) ? prev.filter(type => type != name) : [...prev, name]);
 
     const params = new URLSearchParams();
     params.append("page", '1');
-    if (updatedTypes.size > 0)
-      params.append("type", Array.from(updatedTypes).join(","));
+    if (selectedTypes.length > 0)
+      params.append("type", selectedTypes.join(","));
 
     router.push(`/?${params}`);
   };
