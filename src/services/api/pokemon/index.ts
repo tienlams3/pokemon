@@ -13,11 +13,11 @@ export async function fetchPokemonByOffset(
     limit: PAGE_SIZE.toString(),
     offset: offset.toString(),
   });
-  return pokemonApi.get(`/pokemon?${params}`);
+  return pokemonApi(`/pokemon?${params}`);
 }
 
 export async function fetchPokemonByType(type: string): Promise<IPokemon[]> {
-  const res: IPokemonTypeResponse = await pokemonApi.get(`/type/${type}`);
+  const res: IPokemonTypeResponse = await pokemonApi(`/type/${type}`);
   return res.pokemon.map(({ pokemon }) => pokemon);
 }
 

@@ -7,7 +7,7 @@ interface IPokemonFiltersProps {
 }
 
 export async function getPokemonType(): Promise<IPokemonResponse> {
-  return await pokemonApi.get("/type");
+  return await pokemonApi("/type");
 }
 
 export default async function PokemonFilters({ count }: IPokemonFiltersProps) {

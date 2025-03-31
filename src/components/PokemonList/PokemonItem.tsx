@@ -1,11 +1,12 @@
-import pokemonApi from "@/services/api/rest";
 import { IPokemon, IPokemonDetail } from "@/types/pokemon";
 
 const DEFAULT_IMAGE = "/window.svg"; // Placeholder image path
 
 async function fetchPokemon(url: string): Promise<IPokemonDetail | null> {
   try {
-    return await pokemonApi.get(url);
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('Failed to fetch pokemon item!')
+    return res.json();
   } catch (error) {
     console.error(error);
     return null; // Return null on failure to handle errors gracefully
