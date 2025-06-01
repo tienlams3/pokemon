@@ -9,7 +9,7 @@ async function fetchPokemon(offset: number = 0, types: string[]): Promise<IPokem
   return types.length > 0 ? fetchPokemonByTypes(types, offset) : fetchPokemonByOffset(offset);
 }
 
-export default async function Home({ searchParams }: { searchParams: Record<string, string> }) {
+export default async function Home({ searchParams }: { searchParams: Promise<Record<string, string>> }) {
   const params = await searchParams;
   const activePage = Number(params.page ?? '1');
   const activeTypes = params.type ? params.type.split(",") : [];
