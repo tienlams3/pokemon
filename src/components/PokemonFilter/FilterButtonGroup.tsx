@@ -15,12 +15,13 @@ export default function FilterButtonGroup({ types }: IFilterButtonGroupProps) {
   const [selectedTypes, setSelectedTypes] = useState(typeParam?.split(",") ?? []);
 
   const onFilterChanged = (name: string) => {
-    setSelectedTypes((prev) => prev.includes(name) ? prev.filter(type => type != name) : [...prev, name]);
+    const types = selectedTypes.includes(name) ? selectedTypes.filter(type => type != name) : [...selectedTypes, name];
+    setSelectedTypes(types);
 
     const params = new URLSearchParams();
     params.append("page", '1');
-    if (selectedTypes.length > 0)
-      params.append("type", selectedTypes.join(","));
+    if (types.length > 0)
+      params.append("type", types.join(","));
 
     router.push(`/?${params}`);
   };

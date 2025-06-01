@@ -4,6 +4,8 @@ const withPWA = require("next-pwa")({
   disable: process.env.NODE_ENV === "development",
   register: true,
   skipWaiting: true,
+  mode: "injectManifest",
+  swSrc: "src/sw.js", // or 'src/sw.js' or any path you like
 });
 
 module.exports = withPWA({
