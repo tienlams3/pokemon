@@ -1,7 +1,7 @@
-const BASE_URL = process.env.POKEMON_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_POKEMON_BASE_URL;
 
 if (!BASE_URL) {
-  throw new Error("Missing environment variable: POKEMON_BASE_URL");
+  throw new Error("Missing environment variable: NEXT_PUBLIC_POKEMON_BASE_URL");
 }
 
 const pokemonRestApi = async <T>(
@@ -11,7 +11,6 @@ const pokemonRestApi = async <T>(
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, {
       ...options,
-      next: { revalidate: 3600 },
       headers: {
         "Content-Type": "application/json",
         ...(options.headers || {}),

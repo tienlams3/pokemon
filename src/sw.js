@@ -13,12 +13,13 @@ precacheAndRoute(self.__WB_MANIFEST);
 
 // PokeAPI
 registerRoute(
-  ({ url }) => url.origin === "https://pokeapi.co",
+  ({ url }) =>
+    url.origin === "https://pokeapi.co" && url.pathname.startsWith("/api/v2/"),
   new StaleWhileRevalidate({
-    cacheName: "pokeapi-cache",
+    cacheName: "pokeapi-all",
     plugins: [
       new CacheableResponsePlugin({ statuses: [0, 200] }),
-      new ExpirationPlugin({ maxEntries: 100, maxAgeSeconds: 86400 }),
+      new ExpirationPlugin({ maxEntries: 200, maxAgeSeconds: 3600 }),
     ],
   })
 );
